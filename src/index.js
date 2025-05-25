@@ -15,6 +15,8 @@ const assignmentRoutes = require('./routes/assignment.routes');
 
 const app = express();
 
+app.set('trust proxy', 3);
+
 // Middleware
 app.use(express.json());
 app.use(cors());
