@@ -21,6 +21,20 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
+// Root route handler
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Military Asset Management API is running',
+        version: '1.0.0',
+        endpoints: {
+            auth: '/api/auth',
+            assets: '/api/assets',
+            transfers: '/api/transfers',
+            assignments: '/api/assignments'
+        }
+    });
+});
+
 // Rate limiting
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
